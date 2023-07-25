@@ -21,14 +21,15 @@ jobs:
         run: |
           echo "The repository ${{ github.repository }} contains the following files:"
           tree
+        
+      - shell: bash
+        run: |
+           echo MY_ENV_VAR="HELLO WOLRD" >> $GITHUB_ENV
           
   Show-env:
     runs-on: ubuntu-latest
     needs: [Build]
     steps:
-       - shell: bash
-         run: |
-           echo MY_ENV_VAR="HELLO WOLRD" >> $GITHUB_ENV
            
        - name: Echo Var 
          run: echo $MY_ENV_VAR
