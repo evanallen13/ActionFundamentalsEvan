@@ -21,5 +21,13 @@ jobs:
         run: |
           echo "The repository ${{ github.repository }} contains the following files:"
           tree
-      - name: Dump runner context
-        run: echo '${{ toJSON(github) }}'
+          
+      - shell: bash
+        run: |
+          MY_ENV_VAR="HELLO WOLRD"
+          
+  Show-env:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $MY_ENV_VAR
+  
