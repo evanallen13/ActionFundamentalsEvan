@@ -28,6 +28,7 @@ jobs:
           
   Show-env:
     runs-on: ubuntu-latest
+    needs: [Build]
     steps:
       - run: echo $MY_ENV_VAR
   
